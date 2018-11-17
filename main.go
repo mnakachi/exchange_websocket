@@ -72,8 +72,9 @@ var addr = flag.String("addr", "ws-feed.gdax.com", "http service address")
 // Filename flag just to specify output file
 var fileName = flag.String("file", "gdax.txt", "write all received messages to a file")
 
-// Allow user to pick which channels they want to subscribe to: all, level2, ticker or heartbeat
-// Separate multiple channels by commas - e.g. -channels=ticker,heartbeat
+// Allow user to pick which channels they want to subscribe to: level2, ticker or heartbeat
+// Separate multiple channels by commas - e.g. -channels=ticker,heartbeat,level2
+// There is no 'all' option so just type all channels you want to subscribe to and separate via commas
 var channels = flag.String("channels", "ticker", "which channels do you want to subscribe to from feed")
 
 // Allow user to select currency pair they want to subscribe to: e.g. ETH-USD, BTC-USD, etc...
