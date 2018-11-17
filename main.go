@@ -62,7 +62,14 @@ type Logger struct {
 }
 
 // Flags are all pointers
+
+// Example usage of all the flags: go run main.go -addr=ws-feed.pro.coinbase.com -file=multi.json -ccy=BTC-USD,ETH-USD -channels=ticker,heartbeat,level2
+
+// Address flag for url of specific exchange websocket feed
+// Defaults to gdax but that will be deprecated soon so example new url is: ws-feed.pro.coinbase.com
 var addr = flag.String("addr", "ws-feed.gdax.com", "http service address")
+
+// Filename flag just to specify output file
 var fileName = flag.String("file", "gdax.txt", "write all received messages to a file")
 
 // Allow user to pick which channels they want to subscribe to: all, level2, ticker or heartbeat
