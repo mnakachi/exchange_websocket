@@ -55,6 +55,12 @@ type Request struct {
 	Channels  []string `json:"channels"`
 }
 
+// Logger struct used to write to file
+type Logger struct {
+	mutex *sync.Mutex
+	file  *os.File
+}
+
 // Flags are all pointers
 var addr = flag.String("addr", "ws-feed.gdax.com", "http service address")
 var fileName = flag.String("file", "gdax.txt", "write all received messages to a file")
@@ -186,12 +192,6 @@ func processWrite(message []byte, logger *Logger) error {
 	}
 
 	return nil
-}
-
-// ---------------------------------------------------------------------------------------------------------------------
-type Logger struct {
-	mutex *sync.Mutex
-	file  *os.File
 }
 
 func newLogger(fileName string) (*Logger, error) {
